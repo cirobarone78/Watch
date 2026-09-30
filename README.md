@@ -751,7 +751,7 @@ of these say anything about how many people use it.
 
 | | |
 | --- | --- |
-| [Skills.sh](https://www.skills.sh/oxbshw/watch-skill/watch) | Lists the ten agent skills and installs them into a supported client with one command. |
+| [Skills.sh](https://www.skills.sh/oxbshw/watch-skill/watch) | Lists the eleven agent skills and installs them into a supported client with one command. |
 | [SkillsMP](https://skillsmp.com/creators/oxbshw/watch-skill) | A second skills directory carrying the same set. |
 | [MCP registry](server.json) | The `io.github.oxbshw/watch-skill` server entry, for clients that resolve MCP servers by name. |
 

@@ -67,3 +67,6 @@ t.xml
 # Node-to-Python integration suite runs instead of skipping. Named apart from
 # `.venv` so provisioning it in CI cannot disturb a developer's own.
 /.venv-core/
+
+# Local Watch-LM notebook mappings, evidence, and private run artifacts.
+/.watch-lm/

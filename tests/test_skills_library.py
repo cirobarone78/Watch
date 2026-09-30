@@ -1,4 +1,4 @@
-"""The skills library ships nine agent-facing skills, each a valid
+"""The skills library ships eleven agent-facing skills, each a valid
 trigger surface: parseable frontmatter, a description an agent can route
 on without being told a tool name, and a version that agrees with
 pyproject.
@@ -33,7 +33,7 @@ LIBRARY = [
     "configuring-vision",
     "recovering-from-errors",
 ]
-ALL_SKILLS = ["watch", *LIBRARY]
+ALL_SKILLS = ["watch", "watch-lm", *LIBRARY]
 
 
 def _frontmatter(path: Path) -> dict[str, str]:
@@ -96,6 +96,12 @@ def test_body_wraps_the_cli_only(skill: str) -> None:
 def test_original_watch_skill_untouched_contract() -> None:
     """/watch keeps working: user-invocable with the same argument hint."""
     fm = _frontmatter(SKILLS_DIR / "watch" / "SKILL.md")
+    assert fm.get("user-invocable") == "true"
+    assert "argument-hint" in fm
+
+
+def test_watch_lm_is_explicitly_invocable() -> None:
+    fm = _frontmatter(SKILLS_DIR / "watch-lm" / "SKILL.md")
     assert fm.get("user-invocable") == "true"
     assert "argument-hint" in fm
 

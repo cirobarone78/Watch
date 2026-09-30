@@ -26,6 +26,8 @@ then connect your client through the [agent matrix](agents/README.md).
 
 - [YouTube analysis](guides/youtube-analysis.md) — captions, visual evidence, focused
   windows, and follow-up questions.
+- [NotebookLM project memory](guides/notebooklm-project-memory.md) — optional
+  project-scoped, approval-gated source library for learning from tutorials.
 - [Arabic in, Arabic out](guides/arabic-in-arabic-out.md) — script-aware OCR and
   cross-language retrieval.
 - [Live browser](guides/live-browser.md) — pixels and structured page evidence at once,

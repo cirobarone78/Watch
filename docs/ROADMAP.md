@@ -59,7 +59,7 @@ selection, smaller models, and the freshness semantics that already label a
 late reading as historical are what keep a slow model honest instead of
 misleading.
 
-**A footprint small enough to leave installed.** Ten skills cost about 1,259
+**A footprint small enough to leave installed.** Eleven skills cost about 1,390
 discovery tokens every session before an agent does anything. Progressive
 disclosure and consolidation are how the product stays installed rather than
 being removed for being expensive to have around.
@@ -116,9 +116,9 @@ this roadmap described them as gaps.
   is tested in CI on every platform; hardware capture is not, because the
   runners have no camera, microphone, or desktop session. See
   [capture-capabilities.md](capture-capabilities.md).
-- **The ten skills are not consolidated.** `benchmarks/skill_tokens.py`
-  measures the current cost — 1,259 discovery tokens every session across ten
-  skills, 5,232 body tokens total — and the four-skill progressive-disclosure
+- **The eleven skills are not consolidated.** `benchmarks/skill_tokens.py`
+  estimates the current cost — 1,390 discovery tokens every session across eleven
+  skills, 6,431 body tokens total — and the four-skill progressive-disclosure
   design is not built. The overlap between `watch` / `watching-videos` /
   `asking-with-evidence` / `video-memory` is real and unaddressed. The number
   is a baseline, not a result.
