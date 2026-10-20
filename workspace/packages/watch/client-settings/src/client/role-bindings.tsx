@@ -42,6 +42,7 @@ import {
 } from '../providers.js'
 import type { ChipTone } from './components.js'
 import type { BindingSnapshot, BindingStore, ProviderRow, RoleRow } from './binding-state.js'
+import { recommendedModels } from './model-recommendations.js'
 
 /** What the section is handed by whoever mounts it. */
 export interface RoleBindingsProps {
@@ -137,7 +138,10 @@ export function BindingEditor(
   useEffect(() => { first.current?.focus() }, [])
 
   const chosen = providers.find(entry => entry.provider === provider)
-  const models = chosen?.models ?? []
+  const advertised = chosen?.models ?? []
+  const models = row.role === PRIMARY_ROLE
+    ? recommendedModels(provider, advertised, model)
+    : advertised
 
   // The chosen model is cleared when the provider changes, rather than carried
   // over. A model id from one provider is not a model id for another, and
@@ -153,9 +157,11 @@ export function BindingEditor(
       ? `${chosen.displayName} has no credential yet. Add one in Models & Providers, then come back.`
       : chosen.catalogError !== null
         ? `${chosen.displayName} did not return a model list.`
-        : models.length === 0
+        : advertised.length === 0
           ? `${chosen.displayName} advertised no models.`
-          : `${String(models.length)} model(s) offered by ${chosen.displayName}.`
+          : models.length === 0
+            ? 'No current chat recommendations are advertised. Saved bindings remain unchanged.'
+            : `${String(models.length)} model choice(s) from ${chosen.displayName}; saved selections are preserved.`
 
   return (
     <div style={CONTROL.row}>
