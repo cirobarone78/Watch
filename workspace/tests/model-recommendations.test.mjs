@@ -46,6 +46,13 @@ describe('MiniMax chat recommendations in the actual role editor', () => {
     assert.deepEqual(render('openrouter', ['openai/gpt-4o', 'minimax/minimax-m2.7', 'minimax/minimax-m3', 'minimax/minimax-m3.1-flash:free']).choices,
       ['minimax/minimax-m3.1-flash:free', 'minimax/minimax-m3', 'openai/gpt-4o'])
   })
+  test('older Text-01 recommendations are hidden while saved choices and media remain available', () => {
+    assert.deepEqual(render('minimax', ['MiniMax-Text-01', 'speech-02-hd', 'MiniMax-M3']).choices,
+      ['MiniMax-M3', 'speech-02-hd'])
+    assert.ok(render('minimax', ['MiniMax-Text-01'], 'MiniMax-Text-01').choices.includes('MiniMax-Text-01'))
+    assert.deepEqual(render('openrouter', ['minimax/minimax-01', 'minimax/video-01', 'minimax/minimax-m3']).choices,
+      ['minimax/minimax-m3', 'minimax/video-01'])
+  })
   test('OpenCode Zen uses its own verified Flash spelling', () => {
     assert.deepEqual(render('opencode', ['minimax-m2.7', 'minimax-m3', 'minimax-m3.1-flash-free', 'gpt-5']).choices,
       ['minimax-m3.1-flash-free', 'minimax-m3', 'gpt-5'])

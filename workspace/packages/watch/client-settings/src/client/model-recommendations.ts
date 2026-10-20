@@ -17,9 +17,9 @@ export function recommendedModels(
       ? ['minimax/minimax-m3.1-flash:free', 'minimax/minimax-m3']
       : ['minimax-m3.1-flash-free', 'minimax-m3']
   const isMiniMaxText = (id: string): boolean => direct
-    ? /^MiniMax-M\d/i.test(id)
+    ? /^MiniMax-(?:M\d|Text-01$)/i.test(id)
     : router
-      ? /^minimax\/(?:minimax-)?m\d/i.test(id)
+      ? /^minimax\/(?:(?:minimax-)?m\d|minimax-01$)/i.test(id)
       : /^minimax-m\d/i.test(id)
 
   // Only advertise models the runtime already resolves. Unknown custom IDs and
